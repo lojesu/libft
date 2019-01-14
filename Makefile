@@ -6,9 +6,13 @@
 #    By: lojesu <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/19 14:12:54 by lojesu            #+#    #+#              #
-#    Updated: 2019/01/14 18:16:59 by lojesu           ###   ########.fr        #
+#    Updated: 2019/01/14 18:34:11 by lojesu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#colors
+GREEN = \033[0;32m
+RED = \033[0;31m
 
 NAME = libft.a
 
@@ -91,15 +95,15 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	@gcc -c $(FLAGS) $(SRCS) -I $(INCLUDE) | echo "Creation of .o"
-	@ar rc $(NAME) $(OBJS) | echo "Creation of $(NAME)"
-	@ranlib $(NAME) | echo "Indexing $(NAME)"
+	@gcc -c $(FLAGS) $(SRCS) -I $(INCLUDE) | echo "$(GREEN) Creation of .o"
+	@ar rc $(NAME) $(OBJS) | echo "$(GREEN) Creation of $(NAME)"
+	@ranlib $(NAME) | echo "$(GREEN) Indexing $(NAME)"
 
 clean:
-	@/bin/rm -f $(OBJS) | echo "Deleting .o"
+	@/bin/rm -f $(OBJS) | echo "$(RED)Deleting .o"
 
 fclean: clean
-	@/bin/rm -f $(NAME) | echo "Deleting $(NAME)"
+	@/bin/rm -f $(NAME) | echo "$(RED) Deleting $(NAME)"
 
 re:
 	Make fclean

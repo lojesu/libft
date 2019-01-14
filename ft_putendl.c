@@ -6,7 +6,7 @@
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:45:30 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/14 13:18:16 by lojesu           ###   ########.fr       */
+/*   Updated: 2019/01/14 18:16:27 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_putendl(char const *s)
 {
 	if (!s)
 		return ;
-		write(1, s, ft_strlen(s));
+	write(1, s, ft_strlen(s));
 	ft_putchar('\n');
 }

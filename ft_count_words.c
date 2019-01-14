@@ -6,26 +6,26 @@
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 15:41:18 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/23 16:51:06 by lojesu           ###   ########.fr       */
+/*   Updated: 2019/01/14 18:22:58 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_count_words(char *str, char x)
+int		ft_count_words(char *s)
 {
 	int i;
 	int count;
 
-	if (!str || !x)
+	if (!s)
 		return (0);
 	i = 0;
 	count = 0;
-	while (str[i])
+	while (s[i])
 	{
-		while (str[i] == x)
+		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 			i++;
-		if (str[i] != x && str[i] != '\0')
+		if ((s[i] != ' ' || s[i] != '\n' || s[i] != '\t') && s[i] != '\0')
 		{
-			while (str[i] != x && str[i] != '\0')
+			while ((s[i] != 32 || s[i] != '\n' || s[i] != '\t') && s[i] != '\0')
 				i++;
 			count++;
 		}

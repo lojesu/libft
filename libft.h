@@ -6,7 +6,7 @@
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:40:02 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/14 17:54:06 by lojesu           ###   ########.fr       */
+/*   Updated: 2019/01/14 18:23:14 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_swap(int *a, int *b);
-int					ft_count_words(char *str, char x);
+int					ft_count_words(char *str);
 int					ft_sqrt(int nb);
 int					*ft_sort_tab(int *tab);
 int					ft_power(int nb, int power);
@@ -89,4 +89,5 @@ int					get_next_line(const int fd, char **line);
 char				*ft_strjoin_free(char *s1, char *s2, int mod);
 void				ft_tabdel(char **tab);
 char				*ft_strcut(char *str, size_t c, char *mod);
+int					ft_count_char(char *str, char c);
 #endif

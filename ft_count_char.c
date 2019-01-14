@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabdel.c                                        :+:      :+:    :+:   */
+/*   ft_count_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 13:52:20 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/14 18:16:06 by lojesu           ###   ########.fr       */
+/*   Created: 2019/01/14 18:10:27 by lojesu            #+#    #+#             */
+/*   Updated: 2019/01/14 18:15:29 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-void	ft_tabdel(char **tab)
+int		ft_count_char(char *str, char c)
 {
-	size_t i;
+	int	i;
+	int	count;
 
-	if (!tab)
-		return ;
 	i = 0;
-	while (tab[i] != 0)
+	count = 0;
+	while (str[i])
 	{
-		ft_strdel(&tab[i]);
+		if (str[i] == c)
+			count++;
 		i++;
 	}
-	free(tab);
-	tab = NULL;
+	return (count);
 }

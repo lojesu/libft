@@ -6,7 +6,7 @@
 #    By: lojesu <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/19 14:12:54 by lojesu            #+#    #+#              #
-#    Updated: 2019/01/14 17:53:32 by lojesu           ###   ########.fr        #
+#    Updated: 2019/01/14 18:16:59 by lojesu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,8 @@ SRCS = ft_atoi.c \
 	   ft_power.c \
 	   ft_strjoin_free.c \
 	   ft_tabdel.c \
-	   ft_strcut.c
+	   ft_strcut.c \
+	   ft_count_char.c
 
 .PHONY: all clean fclean re
 

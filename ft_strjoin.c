@@ -6,7 +6,7 @@
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:57:27 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 15:26:33 by lojesu           ###   ########.fr       */
+/*   Updated: 2018/12/12 13:40:55 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	while (s2[j])
 		j++;
-	if (!((str = (char*)malloc(sizeof(char) * (i + j)))))
+	if (!((str = (char*)malloc(sizeof(char) * (i + j) + 1))))
 		return (0);
 	return (ft_fill_strjoin(s1, s2, str));
 }

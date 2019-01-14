@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_tabdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 14:46:52 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/27 13:06:04 by lojesu           ###   ########.fr       */
+/*   Created: 2019/01/08 13:52:20 by lojesu            #+#    #+#             */
+/*   Updated: 2019/01/08 13:55:13 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-void	ft_memdel(void **ap)
+void	ft_tabdel(char **tab)
 {
-	if (*ap != NULL)
+	size_t i;
+
+	if (!tab)
+		return ;
+	i = 0;
+	while (tab[i] != 0)
 	{
-		if (!*ap)
-			return ;
-		free(*ap);
-		*ap = NULL;
+		ft_strdel(&tab[i]);
+		i++;
 	}
+	free(tab);
+	tab = NULL;
 }
+

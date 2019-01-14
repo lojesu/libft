@@ -6,7 +6,7 @@
 /*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:40:02 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/14 13:12:59 by lojesu           ###   ########.fr       */
+/*   Updated: 2019/01/14 17:54:06 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ int					ft_power(int nb, int power);
 int					get_next_line(const int fd, char **line);
 char				*ft_strjoin_free(char *s1, char *s2, int mod);
 void				ft_tabdel(char **tab);
+char				*ft_strcut(char *str, size_t c, char *mod);
 #endif

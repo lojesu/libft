@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 13:45:30 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/14 18:16:27 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/07 13:36:25 by roster            #+#    #+#             */
+/*   Updated: 2018/11/20 16:10:48 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putendl(char const *s)
 {
 	if (!s)
 		return ;
-	write(1, s, ft_strlen(s));
+	ft_putstr(s);
 	ft_putchar('\n');
 }

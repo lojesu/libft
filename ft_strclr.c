@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 17:17:52 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 14:50:16 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/15 07:33:39 by roster            #+#    #+#             */
+/*   Updated: 2019/03/13 17:34:29 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 void	ft_strclr(char *s)
 {
-	int i;
+	size_t i;
 
 	if (!s)
 		return ;
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		s[i] = '\0';
 		i++;

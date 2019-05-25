@@ -3,27 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 17:01:42 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/20 15:55:17 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/12 13:25:29 by roster            #+#    #+#             */
+/*   Updated: 2018/11/22 13:55:03 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;
-	while (s1[i])
+	while (s1[i] != '\0')
 		i++;
-	while (s2[j])
+	while (s2[j] != '\0')
 	{
-		s1[i + j] = s2[j];
+		s1[i] = s2[j];
+		i++;
 		j++;
 	}
-	s1[i + j] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }

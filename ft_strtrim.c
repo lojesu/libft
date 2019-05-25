@@ -3,39 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:17:27 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 16:34:20 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/08 08:49:15 by roster            #+#    #+#             */
+/*   Updated: 2018/11/20 17:06:25 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strtrim(char const *s)
+static size_t	ft_count_space(char const *s)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*str;
+	size_t i;
 
-	if (!s)
-		return (0);
 	i = 0;
-	j = 0;
-	k = 0;
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
-	while (s[k])
-		k++;
+	return (i);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	char	*trim;
+
+	if (!s)
+		return (NULL);
+	i = ft_count_space(s);
+	j = 0;
+	k = ft_strlen(s);
 	while (s[k - 1] == ' ' || s[k - 1] == '\n' || s[k - 1] == '\t')
 		k--;
-	if (i > k)
+	if (k < i)
 		i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (k - i) + 1)))
+	if (!(trim = (char*)malloc(sizeof(char) * (k - i) + 1)))
 		return (0);
 	while (i < k)
-		str[j++] = s[i++];
-	str[j] = '\0';
-	return (str);
+	{
+		trim[j] = s[i];
+		i++;
+		j++;
+	}
+	trim[j] = '\0';
+	return (trim);
 }

@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:40:27 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/23 16:43:38 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/07 15:55:47 by roster            #+#    #+#             */
+/*   Updated: 2018/11/21 08:08:28 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <string.h>
 
-static int	ft_count_word(char const *s, char c)
+static size_t	ft_count_word(char const *s, char c)
 {
-	int i;
-	int count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -33,11 +34,11 @@ static int	ft_count_word(char const *s, char c)
 	return (count);
 }
 
-static char	**ft_fill_tab(char **tab, char c, char const *s)
+static	char	**ft_fill_tab(char **tab, char c, char const *s)
 {
-	int i;
-	int j;
-	int k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
 	k = 0;
@@ -59,12 +60,12 @@ static char	**ft_fill_tab(char **tab, char c, char const *s)
 	return (tab);
 }
 
-static char	**ft_str_malloc(char const *s, char c)
+static char		**ft_malloc_tab(char const *s, char c)
 {
-	int			i;
-	int			j;
-	int			k;
-	char		**tab;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	char	**tab;
 
 	i = 0;
 	k = 0;
@@ -87,9 +88,9 @@ static char	**ft_str_malloc(char const *s, char c)
 	return (ft_fill_tab(tab, c, s));
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	if (!s)
-		return (0);
-	return (ft_str_malloc(s, c));
+		return (NULL);
+	return (ft_malloc_tab(s, c));
 }

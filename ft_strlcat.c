@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/21 14:16:16 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 14:36:13 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/12 15:30:04 by roster            #+#    #+#             */
+/*   Updated: 2018/11/20 11:14:55 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t		ft_strlcat(char *dst, char const *src, size_t size)
 {
 	size_t i;
 	size_t j;

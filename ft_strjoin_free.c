@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 13:43:32 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/08 13:57:33 by lojesu           ###   ########.fr       */
+/*   Created: 2018/12/14 11:00:25 by roster            #+#    #+#             */
+/*   Updated: 2018/12/20 08:21:44 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin_free(char *s1, char *s2, int mod)
 	if (!(str_join = (char *)malloc(sizeof(char) * join_size + 1)))
 		return (NULL);
 	ft_strcpy(str_join, s1);
-	ft_strcpy(str_join, s2);
+	ft_strcat(str_join, s2);
 	if (mod == 1)
 		ft_strdel(&s1);
 	else if (mod == 2)

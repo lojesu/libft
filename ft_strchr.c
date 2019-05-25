@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 13:06:10 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/20 16:14:46 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/16 09:29:36 by roster            #+#    #+#             */
+/*   Updated: 2018/11/22 13:55:34 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	x;
+	size_t	i;
 	char	*str;
+	char	x;
 
 	i = 0;
 	str = (char*)s;
 	x = (char)c;
-	while (str[i])
+	while (s[i] != '\0')
 	{
 		if (str[i] == x)
-		{
 			return (&str[i]);
-		}
 		i++;
 	}
 	if (x == 0)
 		return (&str[i]);
-	return (0);
+	return (NULL);
 }

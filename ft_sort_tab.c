@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 13:28:02 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/24 14:49:04 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/22 14:32:15 by roster            #+#    #+#             */
+/*   Updated: 2018/11/22 15:05:53 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		*ft_sort_tab(int *tab)
+#include "libft.h"
+
+int		*ft_sort_tab(int *tab, size_t size)
 {
-	int		i;
-	int		j;
-	int		x;
+	size_t i;
+	size_t j;
 
 	i = 0;
-	while (tab[i])
+	j = 0;
+	while (i < size)
 	{
 		j = 0;
-		while (tab[j + 1] != '\0')
+		while (j < size)
 		{
-			if (tab[j] > tab[j + 1])
-			{
-				x = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = x;
-			}
+			if (tab[j] > tab[j + 1] && j + 1 < size)
+				ft_swap(&tab[j], &tab[j + 1], sizeof(int));
 			j++;
 		}
 		i++;

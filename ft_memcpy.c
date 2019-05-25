@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 15:43:04 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/20 19:14:12 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/16 17:33:39 by roster            #+#    #+#             */
+/*   Updated: 2018/11/17 12:17:02 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-	char	*ptr1;
-	char	*ptr2;
+	size_t		i;
+	char		*pdst;
+	const char	*psrc;
 
 	i = 0;
-	ptr1 = (char*)dst;
-	ptr2 = (char*)src;
+	pdst = dst;
+	psrc = src;
 	while (i < n)
 	{
-		ptr1[i] = ptr2[i];
+		pdst[i] = psrc[i];
 		i++;
 	}
-	return (ptr1);
+	return (dst);
 }

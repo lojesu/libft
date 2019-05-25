@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 17:34:01 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 14:52:44 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/17 11:12:02 by roster            #+#    #+#             */
+/*   Updated: 2018/12/20 16:57:35 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	tmp[len];
+	size_t			i;
+	char			*d;
+	const char		*s;
 
-	if (len > 12 * 1024 * 1024)
-		return (dst);
-	ft_memcpy(tmp, src, len);
-	ft_memcpy(dst, tmp, len);
-	return (dst);
+	d = (char *)dst;
+	s = (const char *)src;
+	if (d > s)
+	{
+		i = len;
+		while (i > 0)
+		{
+			d[i - 1] = s[i - 1];
+			i--;
+		}
+	}
+	else if (d < s)
+		ft_memcpy(d, s, len);
+	return (d);
 }

@@ -3,66 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 13:53:35 by lojesu            #+#    #+#             */
-/*   Updated: 2018/11/21 13:40:11 by lojesu           ###   ########.fr       */
+/*   Created: 2018/11/07 14:15:19 by roster            #+#    #+#             */
+/*   Updated: 2019/02/27 09:17:41 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static char	*ft_itoa_neg(int n)
+static char	*ft_fill_str(size_t div, long int n, char *str)
 {
-	int		i;
-	long	nb;
-	char	*str;
+	size_t				i;
+	unsigned long int	nb;
 
-	i = 1;
-	nb = n;
-	while (n <= -1)
+	i = 0;
+	if (n < 0)
 	{
-		n = n / 10;
+		str[i] = '-';
 		i++;
+		nb = -n;
 	}
-	if (!((str = (char*)malloc(sizeof(char) * i + 1))))
-		return (0);
-	str[i] = '\0';
-	while (i >= 1)
+	else
+		nb = n;
+	while (div >= 1)
 	{
-		i--;
-		str[i] = -nb % 10 + 48;
-		nb = nb / 10;
+		str[i] = nb / div + 48;
+		i++;
+		nb = nb % div;
+		div = div / 10;
 	}
-	str[i] = '-';
+	str[i] = '\0';
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long int n)
 {
-	int		i;
-	long	nb;
-	char	*str;
+	size_t				size_str;
+	size_t				div;
+	char				*str;
+	unsigned long int	nb;
 
-	i = 0;
-	nb = n;
+	size_str = 1;
+	div = 1;
 	if (n < 0)
-		return (ft_itoa_neg(n));
-	if (n == 0)
-		i = 1;
-	while (n >= 1)
 	{
-		n = n / 10;
-		i++;
+		size_str++;
+		nb = -n;
 	}
-	if (!((str = (char*)malloc(sizeof(char) * i + 1))))
-		return (0);
-	str[i] = '\0';
-	while (i >= 0)
+	else
+		nb = n;
+	while (nb / 10 >= 1)
 	{
-		i--;
-		str[i] = nb % 10 + 48;
+		size_str++;
+		div = 10 * div;
 		nb = nb / 10;
 	}
-	return (str);
+	if (!(str = (char*)malloc(sizeof(char) * size_str + 1)))
+		return (0);
+	return (ft_fill_str(div, n, str));
 }

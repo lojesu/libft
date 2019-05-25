@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 13:02:20 by lojesu            #+#    #+#             */
-/*   Updated: 2019/01/08 13:51:53 by lojesu           ###   ########.fr       */
+/*   Created: 2018/12/12 14:42:01 by roster            #+#    #+#             */
+/*   Updated: 2018/12/21 07:39:42 by roster           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "get_next_line.h"
+#include <stdlib.h>
 
 static int	ft_create_lst(char *tmp, int fd, t_list **lst)
 {
@@ -24,10 +26,14 @@ static int	ft_create_lst(char *tmp, int fd, t_list **lst)
 	elem->str = ft_strcpy(elem->str, tmp);
 	elem->val = fd;
 	if (!*lst)
-		*lst = ft_lstnew(elem, sizeof(struct s_data));
+	{
+		if (!(*lst = ft_lstnew(elem, sizeof(struct s_data))))
+			return (-1);
+	}
 	else
 	{
-		link = ft_lstnew(elem, sizeof(struct s_data));
+		if (!(link = ft_lstnew(elem, sizeof(struct s_data))))
+			return (-1);
 		ft_lstadd(lst, link);
 	}
 	free(elem);
@@ -68,7 +74,8 @@ static int	ft_read_file(char *buf, int fd, char **line, t_list **lst)
 	while ((ret = read(fd, tmp_read, BUFF_SIZE)) > 0)
 	{
 		tmp_read[ret] = '\0';
-		tmp = ft_strjoin_free(tmp, tmp_read, 1);
+		if (!(tmp = ft_strjoin_free(tmp, tmp_read, 1)))
+			return (-1);
 		if (ft_strchr(tmp_read, '\n') != 0)
 			return (ft_check_buf(tmp, fd, line, lst));
 	}

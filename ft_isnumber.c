@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 14:04:55 by roster            #+#    #+#             */
-/*   Updated: 2019/06/23 17:22:41 by lojesu           ###   ########.fr       */
+/*   Created: 2019/09/27 16:37:29 by lojesu            #+#    #+#             */
+/*   Updated: 2019/09/27 16:40:10 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+int		ft_isnumber(char *num)
 {
-	if (!s)
-		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	size_t	i;
+
+	if (!num)
+		return (0);
+	i = 0;
+	if (num[i] == '-')
+		i++;
+	while (ft_isdigit(num[i]))
+		i++;
+	if (i != ft_strlen(num))
+		return (0);
+	return (1);
 }

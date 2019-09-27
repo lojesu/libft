@@ -6,7 +6,7 @@
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 11:38:27 by roster            #+#    #+#             */
-/*   Updated: 2019/03/12 08:16:02 by roster           ###   ########.fr       */
+/*   Updated: 2019/09/27 16:40:47 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ char				*ft_dtoa(double d);
 char				*ft_ldtoa(long double ld);
 size_t				ft_nb_size(long int nb);
 int					ft_printf(const char *fmt, ...);
+int					ft_isnumber(char *num);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 10:42:12 by roster            #+#    #+#             */
-/*   Updated: 2019/03/05 10:15:03 by roster           ###   ########.fr       */
+/*   Updated: 2019/12/06 14:44:42 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 /*
 ** This function transform any binary string to a string number

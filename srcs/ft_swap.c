@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 13:57:44 by roster            #+#    #+#             */
-/*   Updated: 2018/12/21 07:36:53 by roster           ###   ########.fr       */
+/*   Created: 2018/11/22 10:55:39 by roster            #+#    #+#             */
+/*   Updated: 2019/12/06 14:07:46 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# define BUFF_SIZE 32
-
-typedef struct		s_data
+void	ft_swap(void *a, void *b, size_t size)
 {
-	char			*str;
-	int				val;
-}					t_data;
+	char	*tmp;
 
-int					get_next_line(const int fd, char **line);
-
-#endif
+	if (!(tmp = (char *)malloc(sizeof(char) * size)))
+		return ;
+	ft_memcpy(tmp, b, size);
+	ft_memcpy(b, a, size);
+	ft_memcpy(a, tmp, size);
+	free(tmp);
+}

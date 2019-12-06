@@ -6,11 +6,12 @@
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 12:54:39 by roster            #+#    #+#             */
-/*   Updated: 2019/03/14 14:52:43 by roster           ###   ########.fr       */
+/*   Updated: 2019/12/06 14:44:55 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 /*
 ** This function transform the binary mantisse of a float into the equivalent

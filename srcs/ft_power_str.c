@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_power_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 15:39:48 by roster            #+#    #+#             */
-/*   Updated: 2018/11/23 13:40:35 by roster           ###   ########.fr       */
+/*   Created: 2019/03/01 09:26:44 by roster            #+#    #+#             */
+/*   Updated: 2019/12/06 14:44:20 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_power_str(size_t power, size_t base)
 {
+	char	*tmp;
+	char	*str_base;
 	size_t	i;
-	char	*str;
 
-	if (!s || !f)
-		return (NULL);
+	tmp = ft_strnew(1);
+	tmp[0] = '1';
 	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	while (s[i] != '\0')
+	if (power == 0)
+		return (tmp);
+	str_base = ft_itoa(base);
+	while (i < power)
 	{
-		str[i] = f(s[i]);
+		tmp = ft_mul_str(tmp, str_base, 1);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	ft_strdel(&str_base);
+	return (tmp);
 }

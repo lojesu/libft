@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/18 11:42:27 by roster            #+#    #+#             */
-/*   Updated: 2019/03/14 15:52:01 by roster           ###   ########.fr       */
+/*   Created: 2019/12/06 14:37:41 by lojesu            #+#    #+#             */
+/*   Updated: 2019/12/06 14:37:46 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,25 @@ char			*ft_float(va_list ap, char flag, t_flg *flg);
 char			*ft_printf_error(va_list ap, t_flg *flg);
 char			*ft_percent(t_flg *flg);
 char			*ft_itoa_printf(long int nb, int base, size_t mod);
+char			*ft_realloc(char *s, size_t size, size_t mod);
+char			*ft_add_str(char *s1, char *s2, int mod);
+char			*ft_mul_str(char *s1, char *s2, int mod);
+char			*ft_power_str(size_t power, size_t base);
+char			*ft_str_binary_to_nb(char *bin, int mod);
+char			*ft_str_mantisse_to_nb(char *m, int mod);
+char			*ft_dtoa(double d);
+char			*ft_ldtoa(long double ld);
+char			*ft_strsub_free(char *s, unsigned int start,
+		size_t len, size_t mod);
+char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_uitoa(unsigned long int n);
+char			*ft_itoa_base(int n, int base);
+double			ft_power(double nb, int power);
+char			*ft_strrchr(const char *s, int c);
+void			ft_strrev(char **str);
+long int		ft_atol(const char *str);
+void			ft_putstr_free(char *s);
+char			*ft_str_toupper(char *s);
+size_t			ft_strchr_count(char *s, int c);
 
 #endif

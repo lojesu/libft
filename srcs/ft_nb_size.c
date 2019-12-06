@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_nb_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/12 09:30:32 by roster            #+#    #+#             */
-/*   Updated: 2019/03/12 09:33:07 by roster           ###   ########.fr       */
+/*   Created: 2019/03/06 16:48:46 by roster            #+#    #+#             */
+/*   Updated: 2019/12/06 13:36:11 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include <stddef.h>
 
-void	ft_putstr(char const *s)
+size_t	ft_nb_size(long int nb)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	size_t	size;
+
+	size = 1;
+	if (nb < 0)
+		size++;
+	while (nb / 10 >= 1 || nb / 10 <= -1)
+	{
+		size++;
+		nb = nb / 10;
+	}
+	return (size);
 }

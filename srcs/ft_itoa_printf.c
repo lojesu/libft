@@ -6,11 +6,12 @@
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 15:35:19 by roster            #+#    #+#             */
-/*   Updated: 2019/03/07 12:53:56 by roster           ###   ########.fr       */
+/*   Updated: 2019/12/06 14:46:44 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static char	*ft_hexa_base(char *bin)
 {

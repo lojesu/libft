@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lojesu <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 16:28:36 by roster            #+#    #+#             */
-/*   Updated: 2018/11/16 17:09:20 by roster           ###   ########.fr       */
+/*   Created: 2019/12/06 17:21:32 by lojesu            #+#    #+#             */
+/*   Updated: 2019/12/06 17:21:33 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_putchar(char c)
 {
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	str = b;
-	while (i < len)
-	{
-		str[i] = c;
-		i++;
-	}
-	return (b);
+	write(1, &c, 1);
 }

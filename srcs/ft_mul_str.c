@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_str.c                                       :+:      :+:    :+:   */
+/*   ft_mul_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roster <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 15:59:10 by roster            #+#    #+#             */
-/*   Updated: 2019/03/13 08:32:36 by roster           ###   ########.fr       */
+/*   Created: 2019/02/28 19:03:32 by roster            #+#    #+#             */
+/*   Updated: 2019/12/06 14:43:54 by lojesu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_printf.h"
 #include "libft.h"
 
 /*
-** This function is able to make addition between two strings and return malloc
-** It only deals with positive strings or if the s1 string is negative and
-** longer than s2
+** This function is able to make multiplication between two strings
+** and return malloc
 ** the mod permit to free s1, or s2, or both or none respectively 1, 2, 3 !123
 */
 
@@ -27,8 +27,6 @@ static int	ft_protection(char *s1, char *s2)
 	i = 0;
 	while (s1[i])
 	{
-		if (s1[i] == '-')
-			i++;
 		if (ft_isdigit(s1[i]) == 0)
 			return (0);
 		i++;
@@ -56,53 +54,61 @@ static void	ft_deal_mod(char **s1, char **s2, int mod)
 	}
 }
 
-static void	ft_deal_ret(char **tmp, int i, int ret)
+static char	*ft_fill_res_tmp(char *tmp, char *s, int j, int *ret)
 {
-	while (ret == 1 && i > -1)
+	int		i;
+	char	*tmp_res;
+
+	i = ft_strlen(tmp) - 1;
+	tmp_res = ft_strnew(i + 1);
+	while (i > -1)
 	{
-		(*tmp)[i] = (*tmp)[i] + ret;
-		if ((*tmp)[i] > 57)
+		tmp_res[i] = (tmp[i] - 48) * (s[j] - 48) + *ret;
+		if (tmp_res[i] > 9)
 		{
-			(*tmp)[i] = '0';
-			ret = 1;
+			*ret = tmp_res[i] / 10;
+			tmp_res[i] = tmp_res[i] % 10 + 48;
 		}
 		else
-			ret = 0;
+		{
+			tmp_res[i] = tmp_res[i] + 48;
+			*ret = 0;
+		}
 		i--;
 	}
-	if (ret == 1 && i == -1)
-	{
-		if (!(*tmp = ft_realloc(*tmp, 1, 1)))
-			exit(1);
-		(*tmp)[0] = '1';
-	}
+	return (tmp_res);
 }
 
-static void	ft_add_s_to_s(char **tmp, char *s, int i, int j)
+static void	ft_add_s_to_s(char **res, char *s, int j)
 {
-	int	ret;
+	int		ret;
+	char	*tmp;
+	char	*tmp_res;
 
-	ret = 0;
+	tmp = ft_strdup(*res);
+	ft_strdel(res);
 	while (j > -1)
 	{
-		(*tmp)[i] = (*tmp)[i] + s[j] + ret - 48;
-		if ((*tmp)[i] > 57)
-		{
-			(*tmp)[i] = (*tmp)[i] - 10;
-			ret = 1;
-		}
+		ret = 0;
+		tmp_res = ft_fill_res_tmp(tmp, s, j, &ret);
+		if (ret >= 1)
+			tmp_res = ft_strjoin_free(ft_itoa(ret), tmp_res, 0);
+		if (j != (int)ft_strlen(s) - 1)
+			*res = ft_add_str(*res, tmp_res, 3);
 		else
-			ret = 0;
-		i--;
+		{
+			*res = ft_strdup(tmp_res);
+			ft_strdel(&tmp_res);
+		}
+		tmp = ft_strjoin_free(tmp, "0", 1);
 		j--;
 	}
-	if (ret == 1)
-		ft_deal_ret(tmp, i, ret);
+	ft_strdel(&tmp);
 }
 
-char		*ft_add_str(char *s1, char *s2, int mod)
+char		*ft_mul_str(char *s1, char *s2, int mod)
 {
-	char	*tmp;
+	char	*res;
 	int		i;
 	int		j;
 
@@ -112,19 +118,14 @@ char		*ft_add_str(char *s1, char *s2, int mod)
 	j = ft_strlen(s2) - 1;
 	if (i >= j)
 	{
-		tmp = ft_strdup(s1);
-		tmp[0] == '-' ? tmp[0] = '0' : tmp[0];
-		ft_add_s_to_s(&tmp, s2, i, j);
-		if (s1[0] == '-' && tmp[0] == '0')
-			tmp[0] = '-';
-		else if (s1[0] == '-' && tmp[0] != '0')
-			tmp = ft_strjoin_free("-", tmp, 2);
+		res = ft_strdup(s1);
+		ft_add_s_to_s(&res, s2, j);
 	}
 	else
 	{
-		tmp = ft_strdup(s2);
-		ft_add_s_to_s(&tmp, s1, j, i);
+		res = ft_strdup(s2);
+		ft_add_s_to_s(&res, s1, i);
 	}
 	ft_deal_mod(&s1, &s2, mod);
-	return (tmp);
+	return (res);
 }

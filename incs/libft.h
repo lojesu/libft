@@ -108,11 +108,7 @@ t_list				*ft_strsplit_list(char const *s, char c);
 size_t				ft_lstcount(t_list *lst);
 void				ft_lstreverse(t_list **lst);
 
-/*
-** gnl, function that reads a file line by line
-*/
 
-int					get_next_line(const int fd, char **line);
 /*
 ** my printf
 */
